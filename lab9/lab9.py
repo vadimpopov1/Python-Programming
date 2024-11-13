@@ -17,10 +17,9 @@
 #     print(f"Приближенное значение интеграла для N={N}: {result:.6f}")
 
 # 2
-#
 # N = int(input("Введите размер магического квадрата (нечетное число): "))
 # if N % 2 == 0:
-#     print("Размер должен быть нечетным!")
+#     print("Размер должен быть нечетным.")
 # else:
 #     length = N * N
 #     mx = [[None for _ in range(N)] for _ in range(N)]
@@ -31,14 +30,12 @@
 #         ll, hh = l, h
 #         l = (l + 1) % N
 #         h = (h - 1) % N
-#
 #         if mx[l][h] is not None:
 #             l = ll
 #             h = (hh + 1) % N
-#
 #         mx[l][h] = i
-#     for str in mx:
-#         print(' '.join(str(x).rjust(2) for x in str))
+#     for m in mx:
+#         print(' '.join(str(x) if x is not None else ' ' for x in m))
 
 # 3
 # n = int(input("Количество сокровищ: "))
@@ -48,12 +45,16 @@
 #     t_m_cords = list(map(int, input().split()))
 #     treasure_map.append(t_m_cords)
 # cords = list(map(int, input("Координаты Александра: ").split()))
-# mn = 0
-# for i in range(len(treasure_map)-1):
-#     length = (abs((treasure_map[i][0]-cords[0])+(treasure_map[i][0]-cords[1])))**0.5
+# print(treasure_map)
+# mn = 1000000
+# ii = 0
+# for i in range(len(treasure_map)):
+#     length = ((treasure_map[i][0]-cords[0])**2+(treasure_map[i][1]-cords[1])**2)**0.5
+#     print(length)
 #     if length <= mn:
-#         mn = i
-# print(treasure_map[mn][0], treasure_map[mn][1])
+#         mn = length
+#         ii = i
+# print(treasure_map[ii][0], treasure_map[ii][1])
 
 # 4
 # def switch(task):
