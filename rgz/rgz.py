@@ -3,8 +3,12 @@ import PySimpleGUI as sg
 def who_win(step):
     if step % 2 == 0:
         sg.popup("Win player 2! (green)", title="Победа")
+        with open('logfile.txt', 'a') as f:
+            f.write(f"Win player 2! (green) on step: {step+1}\n")
     else:
         sg.popup("Win player 1! (red)", title="Победа")
+        with open('logfile.txt', 'a') as f:
+            f.write(f"Win player 1! (red) on step: {step+1}\n")
 def check_win(matrix, step):
     if matrix[0] == matrix[4] == matrix[8] and matrix[0] in ["X", "O"]:
         who_win(step)
@@ -71,5 +75,7 @@ while True:
 
             if 0 not in matrix:
                 sg.popup("Draw!", title="Ничья")
+                with open('logfile.txt', 'a') as f:
+                    f.write(f"Draw on step: {step+1}\n")
                 break
 window.close()
